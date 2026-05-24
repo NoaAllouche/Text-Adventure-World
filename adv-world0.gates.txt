@@ -1,0 +1,3 @@
+# GATE <gateNumber> <row> <colStart> <colEnd>
+
+GATE 2 15 50 56

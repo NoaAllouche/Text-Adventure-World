@@ -1,0 +1,6 @@
+0 INIT
+FILES adv-world0.screen.txt adv-world1.screen.txt adv-world2.screen.txt adv-world3.screen.txt 
+23 P1 DIR w
+26 P1 DIR d
+42 P1 DIR a
+55 P1 DIR x

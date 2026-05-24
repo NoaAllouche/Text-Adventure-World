@@ -1,0 +1,34 @@
+Bonus features implemented:
+
+1. Bombs respect the optional "shielded by a wall" rule.
+
+   - The bomb explosion propagates up to distance 3 in all 8 directions.
+   - In each direction, if the explosion encounters a wall ('W'):
+     * The wall itself is destroyed.
+     * The explosion in that direction stops and does NOT affect any objects behind that wall.
+   - Other objects (obstacles, keys, bombs, players, etc.) within the radius are destroyed
+     by the explosion, except for doors (digits '1'–'9'), which are intentionally preserved.
+
+   This behavior matches the optional specification in the exercise:
+   "…within a distance of 3 in all directions, including diagonally, unless shielded by a wall".
+
+2. Gate that opens to a door (Gate ? Door transition)
+
+   I implemented an extended behavior where a gate can directly expose a door behind it.
+   In other words, if a gate ('=') is covering a door tile (digit '1'–'9'), then:
+
+   - When the gate is CLOSED:
+       * The player sees '=' characters.
+       * The underlying door is completely hidden and cannot be used.
+
+   - When the gate OPENS (i.e., switches set the correct binary value):
+       * The '=' characters are removed.
+       * The door tile beneath becomes visible.
+       * Players may step onto the door and transition to the corresponding room.
+
+   This feature is not required by the assignment but adds richer puzzle possibilities.
+   It allows to lock a door behind a switch combination instead of placing the
+   door in the open room layout. 
+
+   This is treated as a bonus because the exercise only required gates that toggle between
+   open/closed space, not gates that reveal a functional door beneath them.

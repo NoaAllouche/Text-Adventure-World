@@ -1,0 +1,25 @@
+L
+
+
++==============================================================================+
+|                                                                              |
+|                                                                              |
+|     WWWWWWWWWWWWW                      @                   WWWWWWWWWWWWW     |
+|     WW         WW                                          WW         WW     |
+|     WW    @    WW                 WWWWWWWWWWW              WW    @    WW     |
+|WWWWWWW         WW                 W         W              WW         WWWWWWW|
+|WWWWWWWWWWW WWWWWW                 W  K   K  W              WWWWWW WWWWWWWWWWW|
+|      W         WW                 W         W              WW         W      |
+|      W  /   /  WW                 WWWWWWWWWWW              WW  \  \   W      |
+|      W         WW                                          WW         W      |
+|      WWWWWWWWWWWW                                          WWWWWWWWWWWW      |
+|   @            WW                                          WW            @   |
+|                WW                                          WW                |
+|WWWWWWWWWW**WWWWWW   WW       WW              WW       WW   WWWWWW**WWWWWWWWWW|
+|                WW   WW       WW              WW       WW   WW                |
+|          #     WW   WW   1   WW              WW   3   WW   WW     #          |
+|WWWWW     #     WW   WW       WW              WW       WW   WW     #     WWWWW|
+|W## *     #     WW   WWWWWWWWWWW              WWWWWWWWWWW   WW     #     * ##W|
+|    *     #     WW                                          WW     #     *    |
+|    W     W     WW                                          WW     W     W    |
++==============================================================================+

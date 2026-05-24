@@ -1,0 +1,109 @@
+========================
+adv-world.steps format
+========================
+
+Purpose:
+Records ALL player input events over time (game cycles) so the run can be replayed in -load mode.
+
+Header lines:
+1) INIT line:
+   0 INIT
+
+2) FILES line:
+   FILES <screenFile0> <screenFile1> ...
+
+Event lines:
+Each following line represents ONE input event.
+Format:
+<time> <player> <action> [<value>]
+
+Where:
+- <time> is the game cycle counter (increments by 1 each loop).
+- <player> is P1 or P2.
+- <action> is one of:
+  DIR - player changed direction (value is the movement key pressed)
+  USE - player used their item (no value)
+  RIDDLE - an answer between 1-4
+
+Format for each:
+<time> <player> DIR <key>
+<time> <player> USE
+<time> <player> RIDDLE <1-4>
+
+DIR values (key pressed):
+- Player 1: w / a / s / d / x
+- Player 2: i / j / k / l / m
+
+Examples:
+25 P1 DIR w
+31 P1 RIDDLE 3
+32 P2 USE
+
+
+========================
+adv-world.result format
+========================
+
+Purpose:
+Records significant game outcomes over time.
+Used to verify that replay (-load / -load -silent) produces the same outcomes as the saved run.
+
+Header lines:
+1) INIT line:
+   0 INIT
+
+2) FILES line:
+   FILES <screenFile0> <screenFile1> ...
+
+Event lines:
+Each following line represents ONE outcome event.
+Format:
+<time> <event> <details>
+
+Supported events:
+
+1) SCREEN_CHANGE <player> <roomIndex>
+   - Logged when both players transition to another room.
+   - <player> can be: P1 / P2 / BOTH (depending on implementation)
+   - <roomIndex> is the internal room index used by the program (0-based).
+
+   Example:
+   50 SCREEN_CHANGE BOTH 1
+
+2) LIFE_LOST <player>
+   - Logged when a player loses a life (e.g., from bomb explosion).
+
+   Examples:
+   120 LIFE_LOST P2
+   143 LIFE_LOST P1
+
+3) RIDDLE <player> <question_id> <answer> <CORRECT|WRONG>
+   - Logged when a player attempts a riddle.
+   - <question_id> is an identifier such as Q0, Q1, ...
+   - <answer> is the chosen answer (e.g., 1-4). If not recorded, use "-".
+
+   Examples:
+   200 RIDDLE P1 Q2 3 WRONG
+   215 RIDDLE P1 Q2 1 CORRECT
+
+4) ITEM_PICKUP <player> <item>
+   - Logged when a player picks up an item.
+   - <item> is the symbol of the item (e.g., K, @, !).
+
+   Examples:
+   77 ITEM_PICKUP P1 K
+   81 ITEM_PICKUP P2 @
+
+5) SCORE_CHANGE <score>
+   - Logged whenever the total score changes (after riddle attempts).
+   - Score rules: each riddle starts at 200; each wrong answer reduces by 20; when correct, remaining points are added to total score.
+
+   Examples:
+   200 SCORE_CHANGE 0
+   215 SCORE_CHANGE 160
+
+6) GAME_END <score>
+   - Logged once when the game ends (victory or player death).
+
+   Example:
+   340 GAME_END 360
